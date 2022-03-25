@@ -5,14 +5,11 @@ SELECT 'Hello, World';
 SELECT 'Hello, World' AS Result;
 SELECT * FROM Country;
 SELECT * FROM Country ORDER BY Name;
-SELECT Name, LifeExpectancy FROM Country ORDER BY Name;
 SELECT Name, LifeExpectancy AS "Life Expectancy" FROM Country ORDER BY Name;
 
 -- 02 Selecting Rows
 -- world.db
 
-SELECT Name, Continent, Region FROM Country;
-SELECT Name, Continent, Region FROM Country WHERE Continent = 'Europe';
 SELECT Name, Continent, Region FROM Country WHERE Continent = 'Europe' ORDER BY Name;
 SELECT Name, Continent, Region FROM Country WHERE Continent = 'Europe' ORDER BY Name LIMIT 5;
 SELECT Name, Continent, Region FROM Country WHERE Continent = 'Europe' ORDER BY Name LIMIT 5 OFFSET 5;
@@ -20,9 +17,7 @@ SELECT Name, Continent, Region FROM Country WHERE Continent = 'Europe' ORDER BY 
 -- 03 Selecting Columns
 -- world.db
 
-SELECT * from Country;
 SELECT Name, Continent, Region from Country;
-SELECT Name AS Country, Continent, Region from Country;
 SELECT Name AS Country, Region, Continent from Country;
 
 -- 04 Counting Rows
@@ -30,10 +25,7 @@ SELECT Name AS Country, Region, Continent from Country;
 
 SELECT COUNT(*) FROM Country;
 SELECT COUNT(*) FROM Country WHERE Population > 1000000;
-SELECT COUNT(*) FROM Country WHERE Population > 100000000;
 SELECT COUNT(*) FROM Country WHERE Population > 100000000 AND Continent = 'Europe' ;
-
-SELECT COUNT(*) FROM Country;
 SELECT COUNT(LifeExpectancy) FROM Country;
 
 -- 05 Inserting Data
@@ -74,7 +66,6 @@ CREATE TABLE test (
 
 INSERT INTO test VALUES ( 1, 'a' );
 INSERT INTO test VALUES ( 2, 'b' );
-INSERT INTO test VALUES ( 3, 'c' );
 SELECT * FROM test;
 
 -- 09 DROP TABLE
@@ -93,8 +84,8 @@ CREATE TABLE test ( a INTEGER, b TEXT, c TEXT );
 
 INSERT INTO test VALUES ( 1, 'This', 'Right here!' ); 
 INSERT INTO test ( b, c ) VALUES ( 'That', 'Over there!' ); 
-INSERT INTO test DEFAULT VALUES;
-INSERT INTO test ( a, b, c ) SELECT id, name, description from item;
+INSERT INTO test DEFAULT VALUES; 
+INSERT INTO test ( a, b, c ) SELECT id, name, description from item; 
 
 SELECT * FROM test;
 
